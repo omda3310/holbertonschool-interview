@@ -15,7 +15,7 @@ def validUTF8(data):
         if number_bytes == 0:
             while mask3 & number:
                 number_bytes += 1
-                mask3 = mask3 << 1
+                mask3 = mask3 >> 1
             if number_bytes == 0:
                 continue
             if number_bytes == 1 or number_bytes > 4:
