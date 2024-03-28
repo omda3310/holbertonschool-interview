@@ -49,13 +49,15 @@ void menger(int level)
 	size1 = (int)pow(3, level);
 
     if (level < 0)
-	    return;
+	{
+		return;
+	}
 
     /**
     * draw_sponge - the Menger Sponge
 	*/
 	for (i = 0; i < size1; i++)
-    {
+	{
 		for (j = 0; j < size1; j++)
 		{
 			draw_sponge(level, i, j);
