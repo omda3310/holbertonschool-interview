@@ -50,10 +50,8 @@ return;
 }
 
 int i, j, size1;
-size1 = 0;
-i = 0;
-j = 0;
-size1 = pow(3, level);
+
+size1 = (int)pow(3, level);
 
 /**
 Draw the Menger Sponge
