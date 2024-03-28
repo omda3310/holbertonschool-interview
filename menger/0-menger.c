@@ -38,17 +38,16 @@ void draw_sponge(int level, int x, int y) {
 */
 
 void menger(int level){
+    int i, j, size1;
+    size1 = (int)pow(3, level);
+
     if (level < 0) {
         return;
     }
 
-    int i, j, size1;
-
-    size1 = (int)pow(3, level);
-
-/**
-Draw the Menger Sponge
-*/
+    /**
+    Draw the Menger Sponge
+    */
     for (i = 0; i < size1; i++) {
         for (j = 0; j < size1; j++) {
             draw_sponge(level, i, j);
