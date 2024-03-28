@@ -3,7 +3,7 @@
 
 #include "menger.h"
 
-/*
+/**
 * draw_sponge - draw one level of sponge
 * @level: level of sponge
 * @x: row index
@@ -42,7 +42,8 @@ void draw_sponge(int level, int x, int y)
 * @level: level of sponge
 */
 
-void menger(int level){
+void menger(int level)
+{
     int i, j, size1;
     size1 = (int)pow(3, level);
 
@@ -51,10 +52,12 @@ void menger(int level){
     }
 
     /**
-    * Draw the Menger Sponge
+    * draw_sponge - the Menger Sponge
     */
-    for (i = 0; i < size1; i++) {
-        for (j = 0; j < size1; j++) {
+    for (i = 0; i < size1; i++)
+    {
+        for (j = 0; j < size1; j++)
+        {
             draw_sponge(level, i, j);
         }
         printf("\n");
