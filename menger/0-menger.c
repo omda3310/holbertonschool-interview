@@ -49,8 +49,8 @@ if (level < 0)
 return;
 }
 
-int size1 = pow(3, level);
-int i, j;
+int i, j, size1;
+size1 = pow(3, level);
 
 /**
 Draw the Menger Sponge
