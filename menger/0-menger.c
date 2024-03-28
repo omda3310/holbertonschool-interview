@@ -49,8 +49,10 @@ if (level < 0)
 return;
 }
 
-int i = 0, j = 0;
-double size1 = 0;
+int i, j, size1;
+size1 = 0;
+i = 0;
+j = 0;
 size1 = pow(3, level);
 
 /**
