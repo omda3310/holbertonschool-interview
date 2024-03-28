@@ -12,27 +12,29 @@
 
 void draw_sponge(int level, int x, int y)
 {
+	
     /**
     * Calculate the size of the current level sponge
     */
-    int size = pow(3, level);
+	int size = pow(3, level);
 
     if (level == 0)
     {
-        printf("#");
+		printf("#");
     }
     else
     {
+
         /**
         * Check if current position is the center of the sponge
         */
-        if (x >= size / 3 && x < 2 * size / 3 && y >= size / 3 && y < 2 * size / 3)
+		if (x >= size / 3 && x < 2 * size / 3 && y >= size / 3 && y < 2 * size / 3)
         {
             printf(" ");
         }
-        else
+		else
         {
-            draw_sponge(level - 1, x % (size / 3), y % (size / 3));
+			draw_sponge(level - 1, x % (size / 3), y % (size / 3));
         }
     }
 }
