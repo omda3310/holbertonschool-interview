@@ -12,7 +12,9 @@
 
 void draw_sponge(int level, int x, int y)
 {
-// Calculate the size of the current level sponge
+/**
+Calculate the size of the current level sponge
+*/
 int size = pow(3, level);
 
 if (level == 0)
@@ -21,7 +23,9 @@ if (level == 0)
 }
 else
 {
-    // Check if current position is the center of the sponge
+    /**
+    Check if current position is the center of the sponge
+    */
     if (x >= size / 3 && x < 2 * size / 3 && y >= size / 3 && y < 2 * size / 3)
     {
         printf(" ");
@@ -45,12 +49,15 @@ if (level < 0)
 return;
 }
 
-int size = pow(3, level);
+int size1 = pow(3, level);
+int i, j;
 
-// Draw the Menger Sponge
-for (int i = 0; i < size; i++)
+/**
+Draw the Menger Sponge
+*/
+for (i = 0; i < size1; i++)
 {
-    for (int j = 0; j < size; j++)
+    for (j = 0; j < size1; j++)
     {
         draw_sponge(level, i, j);
     }
