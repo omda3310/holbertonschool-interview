@@ -48,7 +48,7 @@ void menger(int level)
 
 	size1 = (int)pow(3, level);
 
-    if (level < 0)
+	if (level < 0)
 	{
 		return;
 	}
