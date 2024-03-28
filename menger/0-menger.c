@@ -16,6 +16,7 @@ void draw_sponge(int level, int x, int y)
     * Calculate the size of the current level sponge
     */
 	int size = pow(3, level);
+
 	if (level == 0)
 	{
 		printf("#");
@@ -43,22 +44,20 @@ void draw_sponge(int level, int x, int y)
 
 void menger(int level)
 {
-    int i, j, size1;
-    size1 = (int)pow(3, level);
+	int i, j, size1;
+	size1 = (int)pow(3, level);
 
-    if (level < 0) {
-        return;
-    }
+    if (level < 0) return;
 
     /**
     * draw_sponge - the Menger Sponge
     */
     for (i = 0; i < size1; i++)
     {
-        for (j = 0; j < size1; j++)
-        {
-            draw_sponge(level, i, j);
+		for (j = 0; j < size1; j++)
+		{
+			draw_sponge(level, i, j);
         }
-        printf("\n");
+		printf("\n");
     }
 }
