@@ -10,23 +10,28 @@
 * @y: column index
 */
 
-void draw_sponge(int level, int x, int y) {
+void draw_sponge(int level, int x, int y)
+{
     /**
-    Calculate the size of the current level sponge
+    * Calculate the size of the current level sponge
     */
     int size = pow(3, level);
 
-    if (level == 0) {
+    if (level == 0)
+    {
         printf("#");
     }
-    else {
+    else
+    {
         /**
-        Check if current position is the center of the sponge
+        * Check if current position is the center of the sponge
         */
-        if (x >= size / 3 && x < 2 * size / 3 && y >= size / 3 && y < 2 * size / 3) {
+        if (x >= size / 3 && x < 2 * size / 3 && y >= size / 3 && y < 2 * size / 3)
+        {
             printf(" ");
         }
-        else {
+        else
+        {
             draw_sponge(level - 1, x % (size / 3), y % (size / 3));
         }
     }
@@ -46,7 +51,7 @@ void menger(int level){
     }
 
     /**
-    Draw the Menger Sponge
+    * Draw the Menger Sponge
     */
     for (i = 0; i < size1; i++) {
         for (j = 0; j < size1; j++) {
