@@ -38,8 +38,11 @@ int binary_search_recursive(int *array, int value, size_t left, size_t right)
 
 		if (left > right)
 				return (-1);
-		mid = left + (right - left) / 2;
-		print_array(array, left, right);
+		else
+		{
+				mid = left + (right - left) / 2;
+				print_array(array, left, right);
+		}
 		if (array[mid] == value && (mid == 0 || array[mid - 1] != value))
 				return (mid);
 
@@ -62,5 +65,6 @@ int advanced_binary(int *array, size_t size, int value)
 {
 		if (array == NULL || size == 0)
 				return (-1);
-		return (binary_search_recursive(array, value, 0, size - 1));
+		else
+				return (binary_search_recursive(array, value, 0, size - 1));
 }
