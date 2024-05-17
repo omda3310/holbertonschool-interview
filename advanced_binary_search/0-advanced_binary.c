@@ -29,7 +29,7 @@ void print_array(int *array, size_t start, size_t end)
  * @left: Starting index to print from
  * @right: Ending index to print to.
  *
- * return: return first occur
+ * Return: return first occur
  */
 
 int binary_search_recursive(int *array, int value, size_t left, size_t right)
@@ -55,7 +55,7 @@ int binary_search_recursive(int *array, int value, size_t left, size_t right)
  * @size: size of array
  * @value: search value
  *
- * return: index or -1
+ * Return: index or -1
  */
 
 int advanced_binary(int *array, size_t size, int value)
