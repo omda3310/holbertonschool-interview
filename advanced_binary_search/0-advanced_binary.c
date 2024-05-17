@@ -36,7 +36,7 @@ int binary_search_recursive(int *array, int value, size_t left, size_t right)
 	{
 		if (left > right)
 				return (-1);
-		int mid = left + (right - left) / 2;
+		mid = left + (right - left) / 2;
 		print_array(array, left, right);
 		if (array[mid] == value && (mid == 0 || array[mid - 1] != value))
 				return (mid);
