@@ -34,16 +34,16 @@ void print_array(int *array, size_t start, size_t end)
 
 int binary_search_recursive(int *array, int value, size_t left, size_t right)
 	{
-		size_t mid = 0;
+		int mid = 0;
 
 		if (left > right)
 				return (-1);
 		mid = left + (right - left) / 2;
 		print_array(array, left, right);
-		if (int(array[mid]) == value && (mid == 0 || array[mid - 1] != value))
+		if (array[mid] == value && (mid == 0 || array[mid - 1] != value))
 				return (mid);
 
-		if (int(array[mid]) < value)
+		if (array[mid] < value)
 				return (binary_search_recursive(array, value, mid + 1, right));
 		else
 				return (binary_search_recursive(array, value, left, mid));
@@ -60,7 +60,7 @@ int binary_search_recursive(int *array, int value, size_t left, size_t right)
 
 int advanced_binary(int *array, size_t size, int value)
 {
-		if (!(array)|| size == 0)
+		if (array == NULL || size == 0)
 				return (-1);
 		return (binary_search_recursive(array, value, 0, size - 1));
 }
