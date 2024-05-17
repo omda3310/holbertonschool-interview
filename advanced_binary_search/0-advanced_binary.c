@@ -34,6 +34,8 @@ void print_array(int *array, size_t start, size_t end)
 
 int binary_search_recursive(int *array, int value, size_t left, size_t right)
 	{
+		int mid = 0;
+
 		if (left > right)
 				return (-1);
 		mid = left + (right - left) / 2;
