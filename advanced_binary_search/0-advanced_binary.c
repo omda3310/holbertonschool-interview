@@ -28,13 +28,13 @@ void print_array(int *array, size_t start, size_t end)
  * @value: search value
  * @left: Starting index to print from
  * @right: Ending index to print to.
+ *
  * return: return first occur
  */
 
-int binary_search_recursive(
-	int *array, int value, size_t left, size_t right)
+int binary_search_recursive(int *array, int value, size_t left, size_t right)
 	{
-		size_t mid;
+		size_t mid = 0;
 
 		if (left > right)
 				return (-1);
@@ -50,10 +50,11 @@ int binary_search_recursive(
 }
 
 /**
- * advanced_binary - recursive function
+ * advanced_binary - recursive function.
  * @array: the array to print.
  * @size: size of array
  * @value: search value
+ *
  * return: index or -1
  */
 
