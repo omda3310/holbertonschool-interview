@@ -21,7 +21,8 @@ def count_words(subreddit, word_list, after=None, counts=None):
         url = url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
 
     else:
-        url = "https://www.reddit.com/r/{}/hot.json?after={}".format(subreddit, after)
+        url = "https://www.reddit.com/r/{}/hot.json?after={}"\
+         .format(subreddit, after)
 
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)\
                AppleWebKit/537.36 (KHTML, like Gecko)\
@@ -46,4 +47,4 @@ def count_words(subreddit, word_list, after=None, counts=None):
         else:
             sorted_counts = sorted(counts.items(), key=lambda x: (-x[1], x[0]))
             for word, count in sorted_counts:
-                print(f"{word}: {count}")
+                print("{}: {}".format(word, count))
