@@ -8,6 +8,7 @@
 void swap_values(heap_t *a, heap_t *b)
 {
 	int temp = a->n;
+
 	a->n = b->n;
 	b->n = temp;
 }
@@ -51,21 +52,20 @@ heap_t *get_last_node(heap_t *root)
 		return (NULL);
 
 	queue[rear++] = root;
-
 	while (front < rear)
-    {
-			heap_t *node = queue[front++];
+	{
+		heap_t *node = queue[front++];
 
-			if (node->left)
-				queue[rear++] = node->left;
-				if (node->right)
-					queue[rear++] = node->right;
+	if (node->left)
+		queue[rear++] = node->left;
+			if (node->right)
+				queue[rear++] = node->right;
 
 				last = node;
-		}
+	}
 
-		free(queue);
-		return (last);
+	free(queue);
+	return (last);
 }
 
 /**
@@ -74,7 +74,7 @@ heap_t *get_last_node(heap_t *root)
  */
 void rebuild_heap(heap_t *root)
 {
-    heapify_down(root);
+	heapify_down(root);
 }
 
 /**
@@ -85,36 +85,36 @@ void rebuild_heap(heap_t *root)
  */
 int heap_extract(heap_t **root)
 {
-    heap_t *last, *node;
-    int value;
+	heap_t *last, *node;
+	int value;
 
-    if (!root || !*root)
-        return (0);
+	if (!root || !*root)
+		return (0);
 
-    node = *root;
-    value = node->n;
+	node = *root;
+	value = node->n;
 
-    if (!node->left && !node->right)
-    {
-        free(node);
-        *root = NULL;
-        return (value);
-    }
+	if (!node->left && !node->right)
+	{
+		free(node);
+		*root = NULL;
+		return (value);
+	}
 
-    last = get_last_node(*root);
+	last = get_last_node(*root);
 
-    if (last->parent)
-    {
-        if (last->parent->left == last)
-            last->parent->left = NULL;
-        else
-            last->parent->right = NULL;
-    }
+	if (last->parent)
+	{
+		if (last->parent->left == last)
+			last->parent->left = NULL;
+		else
+			last->parent->right = NULL;
+	}
 
-    node->n = last->n;
-    free(last);
+	node->n = last->n;
+	free(last);
 
-    rebuild_heap(*root);
+	rebuild_heap(*root);
 
-    return (value);
+	return (value);
 }
