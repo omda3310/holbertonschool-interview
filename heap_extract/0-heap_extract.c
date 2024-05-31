@@ -34,6 +34,7 @@ void heapify_down(heap_t *node)
     }
 }
 
+
 /**
  * get_last_node - Finds the last node in level-order traversal
  * @root: The root node
