@@ -7,10 +7,9 @@
  */
 void swap_values(heap_t *a, heap_t *b)
 {
-    int temp = a->n;
-
-    a->n = b->n;
-    b->n = temp;
+	int temp = a->n;
+	a->n = b->n;
+	b->n = temp;
 }
 
 /**
@@ -19,20 +18,20 @@ void swap_values(heap_t *a, heap_t *b)
  */
 void heapify_down(heap_t *node)
 {
-    heap_t *largest = node;
-    heap_t *left = node->left;
-    heap_t *right = node->right;
+	heap_t *largest = node;
+	heap_t *left = node->left;
+	heap_t *right = node->right;
 
-    if (left && left->n > largest->n)
-        largest = left;
-    if (right && right->n > largest->n)
-        largest = right;
+	if (left && left->n > largest->n)
+		largest = left;
+	if (right && right->n > largest->n)
+		largest = right;
 
-    if (largest != node)
-    {
-        swap_values(node, largest);
-        heapify_down(largest);
-    }
+	if (largest != node)
+	{
+		swap_values(node, largest);
+		heapify_down(largest);
+	}
 }
 
 /**
@@ -43,30 +42,30 @@ void heapify_down(heap_t *node)
  */
 heap_t *get_last_node(heap_t *root)
 {
-    heap_t **queue;
-    heap_t *last = root;
-    size_t front = 0, rear = 0, size = 1024;
+	heap_t **queue;
+	heap_t *last = root;
+	size_t front = 0, rear = 0, size = 1024;
 
-    queue = malloc(sizeof(heap_t *) * size);
-    if (!queue)
-        return (NULL);
+	queue = malloc(sizeof(heap_t *) * size);
+	if (!queue)
+		return (NULL);
 
-    queue[rear++] = root;
+	queue[rear++] = root;
 
-    while (front < rear)
+	while (front < rear)
     {
-        heap_t *node = queue[front++];
+			heap_t *node = queue[front++];
 
-        if (node->left)
-            queue[rear++] = node->left;
-        if (node->right)
-            queue[rear++] = node->right;
+			if (node->left)
+				queue[rear++] = node->left;
+				if (node->right)
+					queue[rear++] = node->right;
 
-        last = node;
-    }
+				last = node;
+		}
 
-    free(queue);
-    return (last);
+		free(queue);
+		return (last);
 }
 
 /**
