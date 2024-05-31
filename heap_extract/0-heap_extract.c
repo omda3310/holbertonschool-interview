@@ -25,7 +25,7 @@ heap_t *get_last_node(heap_t *root)
     if (!root)
         return (NULL);
 
-    heap_t *last = NULL;
+    heap_t *last;
     heap_t **queue = malloc(sizeof(heap_t *) * 1024);
     int front = 0, rear = 0;
 
@@ -73,7 +73,7 @@ int heap_extract(heap_t **root)
     if (!root || !*root)
         return (0);
 
-    int value = (*root)->n;
+    heap_t value = (*root)->n;
     heap_t *last = get_last_node(*root);
 
     if (last == *root)
@@ -112,6 +112,8 @@ int heap_extract(heap_t **root)
  */
 heap_t *_array_to_heap(int *array, size_t size)
 {
+    size_t i, j;
+
     if (!array || size == 0)
         return (NULL);
 
@@ -119,12 +121,12 @@ heap_t *_array_to_heap(int *array, size_t size)
     if (!nodes)
         return (NULL);
 
-    for (size_t i = 0; i < size; i++)
+    for (i = 0; i < size; i++)
     {
         nodes[i] = malloc(sizeof(heap_t));
         if (!nodes[i])
         {
-            for (size_t j = 0; j < i; j++)
+            for (j = 0; j < i; j++)
                 free(nodes[j]);
             free(nodes);
             return (NULL);
@@ -142,7 +144,7 @@ heap_t *_array_to_heap(int *array, size_t size)
         }
     }
 
-    heap_t *root = nodes[0];
+    *root = nodes[0];
     free(nodes);
     return (root);
 }
