@@ -77,6 +77,7 @@ void rebuild_heap(heap_t *root)
     heapify_down(root);
 }
 
+
 /**
  * heap_extract - Extracts the root node of a max binary heap
  * @root: Double pointer to the root node of the heap
