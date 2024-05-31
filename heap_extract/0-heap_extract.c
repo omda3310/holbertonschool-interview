@@ -8,6 +8,7 @@
 void swap_values(heap_t *a, heap_t *b)
 {
     int temp = a->n;
+
     a->n = b->n;
     b->n = temp;
 }
@@ -33,7 +34,6 @@ void heapify_down(heap_t *node)
         heapify_down(largest);
     }
 }
-
 
 /**
  * get_last_node - Finds the last node in level-order traversal
@@ -77,7 +77,6 @@ void rebuild_heap(heap_t *root)
 {
     heapify_down(root);
 }
-
 
 /**
  * heap_extract - Extracts the root node of a max binary heap
