@@ -51,7 +51,6 @@ void merge_sort(int *array, size_t size)
 	if (size < 2)
 		return;
 	
-	size_t i = 0;
 	size_t mid = size / 2;
 	size_t left_size = mid;
 	size_t right_size = size - mid;
@@ -66,6 +65,7 @@ void merge_sort(int *array, size_t size)
 		return;
 	}
 
+	size_t i;
 	for (i = 0; i < left_size; i++)
 		left[i] = array[i];
 	for (i = 0; i < right_size; i++)
