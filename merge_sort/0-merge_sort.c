@@ -52,29 +52,30 @@ void merge_sort(int *array, size_t size)
 	mid = size / 2;
 	left_size = mid;
 	right_size = size - mid;
+	int *left_arr, *right_arr;
 
 	if (size < 2)
 		return;
 
-	left = (int *)malloc(left_size * sizeof(int));
-	right = (int *)malloc(right_size * sizeof(int));
+	left_arr = (int *)malloc(left_size * sizeof(int));
+	right_arr = (int *)malloc(right_size * sizeof(int));
 
-	if (left == NULL || right == NULL)
+	if (left_arr == NULL || right_arr == NULL)
 	{
-		free(left);
-		free(right);
+		free(left_arr);
+		free(right_arr);
 		return;
 	}
 
 	for (i = 0; i < left_size; i++)
-		left[i] = array[i];
+		left_arr[i] = array[i];
 	for (i = 0; i < right_size; i++)
-		right[i] = array[i + mid];
+		right_arr[i] = array[i + mid];
 
-	merge_sort(left, left_size);
-	merge_sort(right, right_size);
-	merge(array, left, left_size, right, right_size);
+	merge_sort(left_arr, left_size);
+	merge_sort(right_arr, right_size);
+	merge(array, left_arr, left_size, right_arr, right_size);
 
-	free(left);
-	free(right);
+	free(left_arr);
+	free(right_arr);
 }
