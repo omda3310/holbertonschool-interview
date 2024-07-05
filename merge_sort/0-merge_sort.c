@@ -52,13 +52,11 @@ void merge_sort(int *array, size_t size)
 	mid = size / 2;
 	left_size = mid;
 	right_size = size - mid;
-	int *left_arr, *right_arr;
+	int *left_arr = (int *)malloc(left_size * sizeof(int));
+	int *right_arr = (int *)malloc(right_size * sizeof(int));
 
 	if (size < 2)
 		return;
-
-	left_arr = (int *)malloc(left_size * sizeof(int));
-	right_arr = (int *)malloc(right_size * sizeof(int));
 
 	if (left_arr == NULL || right_arr == NULL)
 	{
