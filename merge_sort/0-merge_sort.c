@@ -52,7 +52,6 @@ void merge_sort(int *array, size_t size)
 	mid = size / 2;
 	left_size = mid;
 	right_size = size - mid;
-	int *left, *right;
 
 	if (size < 2)
 		return;
