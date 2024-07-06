@@ -49,11 +49,12 @@ void merge(int *array, int *left, int left_size, int *right, int right_size)
 void merge_sort(int *array, size_t size)
 {
 	size_t i, mid, left_size, right_size;
+	int *left_arr, *right_arr;
 	mid = size / 2;
 	left_size = mid;
 	right_size = size - mid;
-	int *left_arr = (int *)malloc(left_size * sizeof(int));
-	int *right_arr = (int *)malloc(right_size * sizeof(int));
+	left_arr = malloc(left_size * sizeof(int));
+	right_arr = malloc(right_size * sizeof(int));
 
 	if (size < 2)
 		return;
