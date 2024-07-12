@@ -12,6 +12,10 @@ def makeChange(coins, total):
 
     if total <= 0:
         return 0
+    if total in coins:
+        return 1
+    if len(coins) <= 0:
+        return -1
 
     coin_pile = [float('inf')] * (total + 1)
     coin_pile[0] = 0
