@@ -4,7 +4,7 @@ Function to calculate the perimeter of an island
 """
 
 
-def island_perim(grid):
+def island_perimeter(grid):
     """
     Calculate the perimeter of an island represented in a grid.
 
@@ -14,7 +14,7 @@ def island_perim(grid):
     Returns:
         int: The perimeter of the island.
     """
-    val = 0
+    value = 0
     rows = len(grid)
     cols = len(grid[0])
 
