@@ -1,23 +1,26 @@
 #!/usr/bin/python3
-"""Function to calculate the perimeter of an island"""
+"""
+Module that returns the perimeter of the island.
+"""
 
 
 def island_perimeter(grid):
-    """Calculate the perimeter of an island represented in a grid."""
-    value = 0
+    """ Function that returns the perimeter of the island described in grid"""
+    perim = 0
+
     rows = len(grid)
     cols = len(grid[0])
 
-    def is_water(x, y):
-        """return number"""
-        return x < 0 or y < 0 or x >= rows or y >= cols or grid[x][y] == 0
+    for i in range(rows):
+        for j in range(cols):
+            if grid[i][j] == 1:
+                if i == 0 or grid[i-1][j] == 0:
+                    perim += 1
+                if i == rows - 1 or grid[i+1][j] == 0:
+                    perim += 1
+                if j == 0 or grid[i][j-1] == 0:
+                    perim += 1
+                if j == cols - 1 or grid[i][j+1] == 0:
+                    perim += 1
 
-    for column in range(rows):
-        for row in range(cols):
-            if grid[column][row] == 1:
-                value += is_water(column - 1, row)
-                value += is_water(column + 1, row)
-                value += is_water(column, row + 1)
-                value += is_water(column, row - 1)
-
-    return value
+    return perim
