@@ -14,20 +14,19 @@ def island_perim(grid):
     Returns:
         int: The perimeter of the island.
     """
-    if not grid or not grid[0]:
-        return 0
+    val = 0
+    rows = len(grid)
+    cols = len(grid[0])
 
-    rows, cols = len(grid), len(grid[0])
-    perim = 0
+    def is_water(x, y):
+        return x < 0 or y < 0 or x >= rows or y >= cols or grid[x][y] == 0
 
-    for i in range(rows):
-        for j in range(cols):
-            if grid[i][j] == 1:
-                perim += 4
+    for column in range(rows):
+        for row in range(cols):
+            if grid[column][row] == 1:
+                value += is_water(column - 1, row)
+                value += is_water(column + 1, row)
+                value += is_water(column, row + 1)
+                value += is_water(column, row - 1)
 
-                if i > 0 and grid[i - 1][j] == 1:
-                    perim -= 2
-                if j > 0 and grid[i][j - 1] == 1:
-                    perim -= 2
-
-    return perim
+    return value
