@@ -2,7 +2,10 @@
 """
 This script reads stdin line by line and computes metrics.
 """
+
+
 import sys
+
 
 # Initialize variables
 total_file_size = 0
