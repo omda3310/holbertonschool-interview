@@ -1,42 +1,31 @@
 #!/usr/bin/python3
-"""Script that reads stdin line by line and computes metrics"""
+"""
+a script that reads stdin line by line and computes metrics.
+"""
 import sys
 
 
-total_file_size = 0
-status_code_counts = {
-    200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
-line_count = 0
-
-
-def print_stats():
-    print(f"File size: {total_file_size}")
-    for code in sorted(status_code_counts.keys()):
-        if status_code_counts[code] > 0:
-            print(f"{code}: {status_code_counts[code]}")
-
-
+i = 0
+FileSize = 0
+STATUS = {'200': 0, '301': 0,
+          '400': 0, '401': 0,
+          '403': 0, '404': 0,
+          '405': 0, '500': 0}
 try:
     for line in sys.stdin:
-        try:
-            parts = line.split()
-            if len(parts) < 7:
-                continue
-            status_code = int(parts[-2])
-            file_size = int(parts[-1])
-
-            total_file_size += file_size
-            if status_code in status_code_counts:
-                status_code_counts[status_code] += 1
-
-            line_count += 1
-
-            if line_count % 10 == 0:
-                print_stats()
-
-        except Exception:
-            continue
-
-except KeyboardInterrupt:
-    print_stats()
-    raise
+        i += 1
+        sp = line.split(' ')
+        if len(sp) > 2:
+            FileSize += int(sp[-1])
+            if sp[-2] in STATUS:
+                STATUS[sp[-2]] += 1
+        if i % 10 == 0:
+            print("File size: {}".format(FileSize))
+            for key, value in sorted(STATUS.items()):
+                if value != 0:
+                    print("{}: {}".format(key, value))
+finally:
+    print("File size: {}".format(FileSize))
+    for key, value in sorted(STATUS.items()):
+        if value != 0:
+            print("{}: {:d}".format(key, value))
