@@ -15,7 +15,7 @@ request(url, (error, response, body) => {
   const characters = data.characters;
 
   // Function to print character names
-  function printCharacterNames(index) {
+  function printCharacterNames (index) {
     if (index >= characters.length) {
       return;
     }
