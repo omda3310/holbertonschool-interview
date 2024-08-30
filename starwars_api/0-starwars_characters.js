@@ -14,8 +14,13 @@ request(url, (error, response, body) => {
   const data = JSON.parse(body);
   const characters = data.characters;
 
-  characters.forEach(characterUrl => {
-    request(characterUrl, (err, res, body) => {
+  // Function to print character names
+  function printCharacterNames(index) {
+    if (index >= characters.length) {
+      return;
+    }
+
+    request(characters[index], (err, res, body) => {
       if (err) {
         console.error('Error fetching character data:', err);
         return;
@@ -23,6 +28,9 @@ request(url, (error, response, body) => {
 
       const characterData = JSON.parse(body);
       console.log(characterData.name);
+      printCharacterNames(index + 1);
     });
-  });
+  }
+
+  printCharacterNames(0);
 });
